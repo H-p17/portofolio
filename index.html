@@ -158,19 +158,21 @@
 <script src="js/main.js"></script>
 
 <script>
-// ============================
-// FIXED ADMIN LOGIN
-// ============================
+// ========== ADMIN LOGIN FIXED ==========
+// SELALU BISA LOGIN: admin / admin123
+
 document.getElementById("admin-login-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const username = document.getElementById("admin-username").value;
-    const password = document.getElementById("admin-password").value;
+    const username = document.getElementById("admin-username").value.trim();
+    const password = document.getElementById("admin-password").value.trim();
     const loginError = document.getElementById("login-error");
 
-    const savedPassword = localStorage.getItem("adminPassword") || "admin123";
+    // FIX: LOGIN SELALU PAKAI AKUN DEFAULT
+    const VALID_USERNAME = "admin";
+    const VALID_PASSWORD = "admin123";
 
-    if (username === "admin" && password === savedPassword) {
+    if (username === VALID_USERNAME && password === VALID_PASSWORD) {
         sessionStorage.setItem("adminLoggedIn", "true");
         window.location.href = "admin.html";
     } else {
