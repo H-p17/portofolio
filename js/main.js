@@ -1,17 +1,12 @@
 // ======================================================
-// PORTFOLIO CRUD & ADMIN SETTINGS — FINAL VERSION
+// PORTFOLIO CRUD + ADMIN SETTINGS — FINAL VERSION
 // ======================================================
 
-// ===== PROJECTS =====
 let projects = JSON.parse(localStorage.getItem('projects')) || [];
 let editingIndex = -1;
 
 const modalEl = document.getElementById("projectModal");
 let modal = modalEl ? bootstrap.Modal.getOrCreateInstance(modalEl) : null;
-
-// ===== ADMIN CREDENTIALS =====
-let ADMIN_USERNAME = 'admin';
-let ADMIN_PASSWORD = localStorage.getItem('adminPassword') || 'admin123';
 
 // ===== LOAD PROJECTS =====
 function loadProjects() {
@@ -157,54 +152,20 @@ function updateStats() {
     document.getElementById("projects-with-images").textContent = projects.filter(p => p.image).length;
 }
 
-// ===== ADMIN LOGIN (INDEX.HTML) =====
-const adminForm = document.getElementById('admin-login-form');
-const loginError = document.getElementById('login-error');
-if (adminForm) {
-    adminForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        const username = document.getElementById('admin-username').value;
-        const password = document.getElementById('admin-password').value;
-        if(username === ADMIN_USERNAME && password === ADMIN_PASSWORD){
-            sessionStorage.setItem('adminLoggedIn','true');
-            window.location.href = 'admin.html';
-        } else {
-            loginError.style.display = 'block';
-        }
-    });
-}
-
-// ===== SETTINGS MODAL (CHANGE PASSWORD) =====
-const openSettingsBtn = document.getElementById('openSettings');
-const settingsModalEl = document.getElementById('settingsModal');
-const settingsModal = settingsModalEl ? new bootstrap.Modal(settingsModalEl) : null;
-
-if(openSettingsBtn){
-    openSettingsBtn.addEventListener('click', ()=> settingsModal.show());
-}
-
-const settingsForm = document.getElementById('settingsForm');
-if(settingsForm){
-    settingsForm.addEventListener('submit', function(e){
-        e.preventDefault();
-        const newPassword = document.getElementById('newPassword').value.trim();
-        if(newPassword.length < 4){
-            alert("Password must be at least 4 characters.");
-            return;
-        }
-        localStorage.setItem('adminPassword', newPassword);
-        ADMIN_PASSWORD = newPassword;
-        alert("Password updated successfully!");
-        settingsModal.hide();
-    });
-}
-
-// ===== SHOW ADD BUTTON =====
-document.getElementById("openAdd")?.addEventListener("click", showAddForm);
-document.getElementById("projectForm")?.addEventListener("submit", saveProject);
-
-// ===== INIT =====
+// ===== EVENTS =====
 document.addEventListener("DOMContentLoaded", () => {
     loadProjects();
     updateStats();
+});
+
+document.getElementById("openAdd")?.addEventListener("click", showAddForm);
+document.getElementById("projectForm")?.addEventListener("submit", saveProject);
+document.getElementById("settingsForm")?.addEventListener("submit", function(e){
+    e.preventDefault();
+    const newPass = document.getElementById('newPassword').value.trim();
+    if(newPass){
+        localStorage.setItem('adminPassword', newPass);
+        alert('Password updated!');
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('settingsModal')).hide();
+    }
 });
