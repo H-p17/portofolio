@@ -1,24 +1,8 @@
 // ======================================================
-// PORTFOLIO CRUD + ADMIN SETTINGS — FINAL VERSION
+// PORTFOLIO CRUD + ADMIN SETTINGS — FINAL VERSION (MOBILE FRIENDLY)
 // ======================================================
 
-// ===== DEFAULT PROJECT SEED =====
-const defaultProjects = [
-    {
-        title: "Sample Project",
-        description: "This is a default project to display on all devices.",
-        link: "https://example.com",
-        image: "images/placeholder-project.png"
-    }
-];
-
-// Ambil dari localStorage atau pakai default jika kosong
-let projects = JSON.parse(localStorage.getItem('projects'));
-if (!projects || projects.length === 0) {
-    projects = defaultProjects;
-    localStorage.setItem('projects', JSON.stringify(projects));
-}
-
+let projects = JSON.parse(localStorage.getItem('projects')) || [];
 let editingIndex = -1;
 
 const modalEl = document.getElementById("projectModal");
@@ -40,25 +24,25 @@ function loadProjects() {
 
     projects.forEach((project, index) => {
         const item = document.createElement("div");
-        item.className = isAdmin ? "card admin-card mb-3" : "col-md-4 mb-4 fade-in-up";
+        item.className = isAdmin ? "card admin-card mb-3" : "col-12 col-md-4 mb-4 fade-in-up";
 
         if (isAdmin) {
             // Admin Card
             item.innerHTML = `
                 <div class="row g-0">
-                    <div class="col-md-3">
+                    <div class="col-4 col-md-3">
                         <img src="${project.image || 'https://via.placeholder.com/200x150'}"
                              class="img-fluid rounded-start h-100 object-fit-cover"
                              style="max-height:150px">
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-8 col-md-7">
                         <div class="card-body">
                             <h5 class="card-title">${project.title}</h5>
                             <p class="card-text text-truncate">${project.description}</p>
                             ${project.link ? `<a href="${project.link}" target="_blank">View Project</a>` : ""}
                         </div>
                     </div>
-                    <div class="col-md-2 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-12 col-md-2 d-flex flex-column justify-content-center align-items-center mt-2 mt-md-0">
                         <button class="btn btn-warning btn-sm w-75 mb-2" onclick="editProject(${index})">Edit</button>
                         <button class="btn btn-danger btn-sm w-75" onclick="deleteProject(${index})">Delete</button>
                     </div>
@@ -163,9 +147,9 @@ function saveProjects() {
 
 // ===== UPDATE DASHBOARD STATS =====
 function updateStats() {
-    document.getElementById("total-projects").textContent = projects.length;
-    document.getElementById("projects-with-links").textContent = projects.filter(p => p.link).length;
-    document.getElementById("projects-with-images").textContent = projects.filter(p => p.image).length;
+    document.getElementById("total-projects")?.textContent = projects.length;
+    document.getElementById("projects-with-links")?.textContent = projects.filter(p => p.link).length;
+    document.getElementById("projects-with-images")?.textContent = projects.filter(p => p.image).length;
 }
 
 // ===== EVENTS =====
@@ -177,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("openAdd")?.addEventListener("click", showAddForm);
 document.getElementById("projectForm")?.addEventListener("submit", saveProject);
 
-// ===== ADMIN SETTINGS =====
 document.getElementById("settingsForm")?.addEventListener("submit", function(e){
     e.preventDefault();
     const newPass = document.getElementById('newPassword').value.trim();
