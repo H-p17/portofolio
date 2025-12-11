@@ -1,0 +1,234 @@
+/* ==============================
+   ADMIN.CSS — PREMIUM 20M EDITION
+   ============================== */
+
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== BODY ===== */
+.dashboard-body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2b2b4b);
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: rgba(30,30,50,0.95);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.3);
+    z-index: 100;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo-dot {
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(45deg, #ffdd57, #ff6f61);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.brand-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu li a.active,
+.sidebar-menu li a:hover {
+    background: linear-gradient(45deg, #ffdd57, #ff6f61);
+    color: #111;
+}
+
+/* ===== SIDEBAR FOOTER ===== */
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.btn.btn-ghost {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    color: #fff;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+}
+
+.btn.btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    margin-left: 250px;
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.small-note {
+    font-size: 0.875rem;
+    color: #ccc;
+}
+
+/* ===== STATS CARDS ===== */
+.stats-row {
+    margin-bottom: 40px;
+}
+
+.stats-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transition: all 0.3s ease-in-out;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.stats-icon {
+    font-size: 2rem;
+}
+
+.stats-number {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.stats-label {
+    font-size: 0.875rem;
+    color: #ccc;
+}
+
+/* ===== PROJECTS SHELL ===== */
+.projects-shell {
+    background: rgba(40,40,70,0.4);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+#projects-container .card {
+    margin-bottom: 15px;
+}
+
+/* ===== MODAL ===== */
+.modal-content.modal-solid {
+    background: rgba(30,30,50,0.95);
+    color: #fff;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+}
+
+.form-container .form-control.input-dark {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-container .form-control.input-dark:focus {
+    background: rgba(255,255,255,0.2);
+    border-color: #ffdd57;
+    box-shadow: 0 0 15px rgba(255,221,87,0.3);
+    color: #fff;
+}
+
+/* ===== BUTTONS ===== */
+.btn-add {
+    background: linear-gradient(45deg, #ffdd57, #ff6f61);
+    border-radius: 50px;
+    color: #111;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 8px 18px;
+}
+
+.btn-add:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255,221,87,0.5);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px;
+    }
+
+    .sidebar-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 0;
+    }
+}

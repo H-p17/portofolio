@@ -1,0 +1,106 @@
+/* ==============================
+   AUTH.CSS — PREMIUM 20M EDITION
+   ============================== */
+
+/* ===== GOOGLE FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e1e2f, #2b2b4b);
+    color: #fff;
+}
+
+/* ===== FORM CONTAINER ===== */
+.auth-container {
+    background: rgba(30,30,50,0.9);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.auth-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* ===== FORM HEADING ===== */
+.auth-container h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #ffdd57;
+}
+
+/* ===== INPUT FIELDS ===== */
+.auth-container .form-control {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 15px;
+    color: #fff;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.auth-container .form-control:focus {
+    background: rgba(255,255,255,0.2);
+    border-color: #ffdd57;
+    box-shadow: 0 0 15px rgba(255,221,87,0.3);
+    outline: none;
+    color: #fff;
+}
+
+/* ===== BUTTONS ===== */
+.auth-container .btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, #ffdd57, #ff6f61);
+    color: #111;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-container .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255,221,87,0.5);
+}
+
+/* ===== LINKS ===== */
+.auth-container .form-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.auth-container .form-footer a {
+    color: #ffdd57;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.auth-container .form-footer a:hover {
+    color: #ff6f61;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 30px 20px;
+    }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>My Portfolio</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="homepage-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-nav fixed-top blur-nav">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#home"><span class="brand-dot"></span> MyPortfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link nav-link-anim" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-anim" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-anim" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-anim" href="#contact">Contact</a></li>
+        <li class="nav-item">
+          <button class="btn btn-sm btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#loginModal">Admin Login</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section d-flex align-items-center">
+  <div class="container text-center hero-content fade-in-up">
+    <h1 class="hero-title fw-bold mb-3">
+      Showcasing Creativity <br> Through Code & Design
+    </h1>
+    <p class="hero-sub">
+      A collection of my best work, ideas, and digital experiments.
+    </p>
+    <a href="#projects" class="btn hero-btn mt-4 px-4 py-2">Explore My Projects</a>
+  </div>
+  <div class="hero-glow"></div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section-padding">
+  <div class="container fade-in-up">
+    <h2 class="section-title text-center mb-4">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4">
+        <p class="about-text">Hi! I'm a developer who loves building clean, modern, and purposeful digital experiences.</p>
+        <p class="about-text">I explore new technologies, take challenges, and improve my craft for better user experiences.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="images/placeholder-profile.png" class="img-fluid rounded shadow-lg about-img" alt="Profile">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section-padding projects-bg">
+  <div class="container fade-in-up">
+    <h2 class="section-title text-center mb-4">My Projects</h2>
+    <div id="projects-container" class="row g-4"></div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section-padding">
+  <div class="container fade-in-up">
+    <h2 class="section-title text-center mb-4">Contact Me</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <p class="contact-text">Reach out for collaborations, questions, or opportunities.</p>
+        <ul class="list-unstyled contact-list">
+          <li><strong>Email:</strong> ahhadi1724@gmail.com</li>
+          <li><strong>Phone:</strong> +62 856 9312 8601</li>
+          <li><strong>Location:</strong> Bogor</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <form class="contact-form">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control form-control-dark" placeholder="Your name">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control form-control-dark" placeholder="Your email">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control form-control-dark" rows="3" placeholder="Your message"></textarea>
+          </div>
+          <button type="submit" class="btn hero-btn w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-dark text-white text-center py-3">
+  <p class="m-0">&copy; 2025 My Portfolio — All Rights Reserved.</p>
+</footer>
+
+<!-- Admin Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Admin Login</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="admin-login-form">
+          <div class="mb-3">
+            <label for="admin-username" class="form-label">Username</label>
+            <input type="text" class="form-control form-control-dark" id="admin-username" required>
+          </div>
+          <div class="mb-3">
+            <label for="admin-password" class="form-label">Password</label>
+            <input type="password" class="form-control form-control-dark" id="admin-password" required>
+          </div>
+          <div id="login-error" class="text-danger mb-2" style="display:none;">Invalid username or password</div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // ===== ADMIN LOGIN (integrated with localStorage password) =====
+  const adminForm = document.getElementById('admin-login-form');
+  const loginError = document.getElementById('login-error');
+
+  const ADMIN_USERNAME = 'admin';
+  const ADMIN_PASSWORD = localStorage.getItem('adminPassword') || 'admin123';
+
+  adminForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const username = document.getElementById('admin-username').value.trim();
+    const password = document.getElementById('admin-password').value.trim();
+
+    if(username === ADMIN_USERNAME && password === ADMIN_PASSWORD){
+      sessionStorage.setItem('adminLoggedIn', 'true');
+      window.location.href = 'admin.html';
+    } else {
+      loginError.style.display = 'block';
+    }
+  });
+
+  if(sessionStorage.getItem('adminLoggedIn') === 'true'){
+    window.location.href = 'admin.html';
+  }
+</script>
+</body>
+</html>
