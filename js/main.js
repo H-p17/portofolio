@@ -170,3 +170,8 @@ document.getElementById("settingsForm")?.addEventListener("submit", function(e){
         bootstrap.Modal.getOrCreateInstance(document.getElementById('settingsModal')).hide();
     }
 });
+
+// ===== DEFAULT ADMIN PASSWORD =====
+if(!localStorage.getItem('adminPassword')){
+    localStorage.setItem('adminPassword', 'admin123'); // default: admin123
+}
