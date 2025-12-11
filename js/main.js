@@ -2,7 +2,23 @@
 // PORTFOLIO CRUD + ADMIN SETTINGS — FINAL VERSION
 // ======================================================
 
-let projects = JSON.parse(localStorage.getItem('projects')) || [];
+// ===== DEFAULT PROJECT SEED =====
+const defaultProjects = [
+    {
+        title: "Sample Project",
+        description: "This is a default project to display on all devices.",
+        link: "https://example.com",
+        image: "images/placeholder-project.png"
+    }
+];
+
+// Ambil dari localStorage atau pakai default jika kosong
+let projects = JSON.parse(localStorage.getItem('projects'));
+if (!projects || projects.length === 0) {
+    projects = defaultProjects;
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+
 let editingIndex = -1;
 
 const modalEl = document.getElementById("projectModal");
@@ -160,6 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("openAdd")?.addEventListener("click", showAddForm);
 document.getElementById("projectForm")?.addEventListener("submit", saveProject);
+
+// ===== ADMIN SETTINGS =====
 document.getElementById("settingsForm")?.addEventListener("submit", function(e){
     e.preventDefault();
     const newPass = document.getElementById('newPassword').value.trim();
